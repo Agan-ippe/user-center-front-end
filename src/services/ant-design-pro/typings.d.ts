@@ -4,7 +4,7 @@
 declare namespace API {
   type CurrentUser = {
     id: number;
-    username:string;
+    username?:string;
     userAccount:string
     gender: number;
     avatarUrl?: string;
