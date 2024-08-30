@@ -84,31 +84,6 @@ const columns: ProColumns<API.CurrentUser>[] = [
   },
   // {
   //   disable: true,
-  //   title: '状态',
-  //   dataIndex: 'state',
-  //   filters: true,
-  //   onFilter: true,
-  //   ellipsis: true,
-  //   valueType: 'select',
-  //   valueEnum: {
-  //     all: { text: '超长'.repeat(50) },
-  //     open: {
-  //       text: '未解决',
-  //       status: 'Error',
-  //     },
-  //     closed: {
-  //       text: '已解决',
-  //       status: 'Success',
-  //       disabled: true,
-  //     },
-  //     processing: {
-  //       text: '解决中',
-  //       status: 'Processing',
-  //     },
-  //   },
-  // },
-  // {
-  //   disable: true,
   //   title: '标签',
   //   dataIndex: 'labels',
   //   search: false,
@@ -151,7 +126,18 @@ const columns: ProColumns<API.CurrentUser>[] = [
     title: '操作',
     valueType: 'option',
     key: 'option',
-    render: (text, record, _, action) => [
+    render: (text, record,
+             _, action) => [
+
+      // <a
+      //   key="delete"
+      //   onClick={() => {
+      //     action?.startEditable?.(record.id);
+      //   }}
+      // >
+      //   编辑
+      // </a>,
+
       <a
         key="editable"
         onClick={() => {
@@ -160,9 +146,7 @@ const columns: ProColumns<API.CurrentUser>[] = [
       >
         编辑
       </a>,
-      <a href={record.url} target="_blank" rel="noopener noreferrer" key="view">
-        查看
-      </a>,
+
       <TableDropdown
         key="actionGroup"
         onSelect={() => action?.reload()}
